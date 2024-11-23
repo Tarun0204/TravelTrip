@@ -1,0 +1,119 @@
+.nav-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-bar-mobile-logo-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1000;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar-large-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #304766;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.logout-mobile-btn {
+  border: none;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .nav-bar-mobile-logo-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-bar-large-container {
+    display: none;
+  }
+
+  .nav-menu-list-mobile {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-menu-item-mobile {
+    list-style: none;
+    margin: 0 10px;
+  }
+
+  .home-logo-mobile {
+    height: 30px;
+  }
+
+  .trips-logo-mobile {
+    margin-left: 30px;
+    height: 30px;
+  }
+
+  .logout-mobile-button {
+    height: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-bar-mobile-logo-container {
+    display: none;
+  }
+
+  .nav-bar-large-container {
+    display: flex;
+    position: static;
+  }
+
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-menu-item {
+    margin-right: 20px;
+  }
+
+  .logout-desktop-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 30px;
+    color: #304766;
+    border-radius: 8px;
+  }
+
+  .header-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 30px;
+    font-family: Caveat;
+  }
+}

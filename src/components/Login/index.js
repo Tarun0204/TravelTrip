@@ -11,6 +11,7 @@ class Login extends Component {
     errorMsg: '',
     showErrorMsg: false,
     showPassword: false,
+    shouldRedirect: false, // Added for navigation
   }
 
   togglePasswordVisibility = () => {
@@ -19,9 +20,7 @@ class Login extends Component {
 
   onSuccessLogin = jwtToken => {
     Cookies.set('jwt_token', jwtToken, { expires: 30 })
-    // Remove the useNavigate reference as it's not needed in a class component.
-    const { navigate } = this.props
-    navigate('/')
+    this.setState({ shouldRedirect: true }) // Trigger navigation
   }
 
   onFailureLogin = errorMsg => {
@@ -113,10 +112,12 @@ class Login extends Component {
 
   render() {
     const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken !== undefined) {
+    const { errorMsg, showErrorMsg, shouldRedirect } = this.state
+
+    if (jwtToken !== undefined || shouldRedirect) {
       return <Navigate to="/" />
     }
-    const { errorMsg, showErrorMsg } = this.state
+
     return (
       <div className="login-container">
         <form className="login-form" onSubmit={this.onSubmitForm}>
